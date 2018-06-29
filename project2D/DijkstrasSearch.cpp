@@ -9,11 +9,11 @@ void dijkstrasSearch(startNode, endNode)
 		//Set startNode.parent to null
 		//Add startNode to openList
 
-		//While openList is not empty
+		//While (openList != empty)
 
-			//Sort openList by Node.gScore
+			//Sort openList by Node.gScore || openList.sort(Node.gScore)"?
 
-			//Let currentNode = first item in openList
+			//Let currentNode = first item in openList || currentNode = openList.first();
 
 			// Process the node, do what you want with it. EG:
 			//if currentNode is endNode
