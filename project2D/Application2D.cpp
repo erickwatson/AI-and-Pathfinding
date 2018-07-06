@@ -16,6 +16,8 @@ bool Application2D::startup() {
 	
 	m_2dRenderer = new aie::Renderer2D();
 	m_font = new aie::Font("./font/consolas.ttf", 32);
+
+
 	
 	return true;
 }
