@@ -11,8 +11,8 @@ namespace Pathfinding
 	class Edge {
 	public:
 
-		Edge(Vertex* t = nullptr, void* userdata = nullptr)
-			:	m_userData(userdata),
+		Edge(Vertex* t = nullptr, float userdata = 0)
+			:	m_cost(userdata),
 				m_target(t)
 		{}
 		virtual ~Edge() {}
@@ -21,15 +21,17 @@ namespace Pathfinding
 		Vertex* m_target;
 
 		// custom user data (alternative to deriving)
-		void* m_userData;
+		//void* m_userData;
+		float m_cost;
 	};
 
 	class Vertex {
 	public: 
 
-		Vertex(const Vector2& pos, void* userdata = nullptr)
+		Vertex(const Vector2& pos, Vertex* userdata = nullptr)
 			:	m_position(pos),
-				m_userData(userdata)
+				m_parent(userdata),
+				m_gScore(FLT_MAX)
 		{}
 
 		virtual ~Vertex() {}
@@ -38,39 +40,30 @@ namespace Pathfinding
 		std::vector<Edge*> m_edges;
 
 		// custom user data (alternative to deriving)
-		void* m_userData;
+		Vertex* m_parent;
 
 		// The vertex position
 		Vector2 m_position;
+
+		float m_gScore;
 	};
 	
 	class Graph
 	{
 	public:
-		void addVertex(const Vertex& v)
-		{
-			m_vertices.push_back(v);
-		}
+		Graph();
+		
+		~Graph();
+		
+		void addVertex(const Vertex& v);
 
-		void addVertex(float x, float y)
-		{
-			m_vertices.push_back(Vector2(x, y));
-		}
+		void addVertex(float x, float y);
+	
+		void clear();
 
-		void clear()
-		{
-			m_vertices.clear();
-		}
+		Vertex& operator[](int index);
 
-		Vertex& operator[](int index) 
-		{
-			return m_vertices[index];
-		}
-
-		unsigned int size()
-		{
-			return m_vertices.size();
-		}
+		unsigned int size();
 
 	protected:
 		std::vector<Vertex> m_vertices;
