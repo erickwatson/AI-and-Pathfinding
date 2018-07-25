@@ -46,6 +46,8 @@ namespace Pathfinding
 		Vector2 m_position;
 
 		float m_gScore;
+		float m_hScore;
+		float m_fScore;
 	};
 	
 	class Graph

@@ -165,6 +165,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application2D.cpp" />
+    <ClCompile Include="AStar.cpp" />
     <ClCompile Include="Behaviour.cpp" />
     <ClCompile Include="DijkstrasSearch.cpp" />
     <ClCompile Include="FollowBehaviour.cpp" />
