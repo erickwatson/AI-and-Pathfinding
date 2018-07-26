@@ -17,7 +17,7 @@ public:
 	void setPosition(float x, float y) { m_position = Vector2(x, y); }
 	void setAcceleration(float x, float y) { m_acceleration = Vector2(x, y); }
 	void setVelocity(float x, float y) { m_velocity = Vector2(x, y); }
-	//void getPosition(float* x, float* y) const { *x = m_x; *y = m_y; }
+	void getPosition(float* x, float* y) const { *x = m_position.x; *y = m_position.y; }
 	Vector2 getPosition()const { return (m_position); }
 	void translate(float x, float y) { m_position.x += x; m_position.y += y; }
 

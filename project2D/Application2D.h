@@ -22,11 +22,12 @@ protected:
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Font*			m_font;
 
-	GameObject m_player;
-	KeyboardBehaviour m_commandInput;
+	GameObject			m_player;
+	FollowBehaviour		m_playerFollowBehaviour;
+	KeyboardBehaviour	m_commandInput;
 
-	GameObject m_enemy;
-	FollowBehaviour m_followBehaviour;
+	GameObject			m_enemy;
+	FollowBehaviour		m_followBehaviour;
 
 	float m_cameraX, m_cameraY;
 	float m_timer;
