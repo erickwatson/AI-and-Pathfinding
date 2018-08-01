@@ -168,21 +168,29 @@
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="AStar.cpp" />
     <ClCompile Include="Behaviour.cpp" />
+    <ClCompile Include="Condition.cpp" />
     <ClCompile Include="DijkstrasSearch.cpp" />
     <ClCompile Include="FollowBehaviour.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="KeyboardBehaviour.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="Transition.cpp" />
+    <ClCompile Include="WithinRangeCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Application2D.h" />
     <ClInclude Include="Behaviour.h" />
+    <ClInclude Include="Condition.h" />
     <ClInclude Include="FollowBehaviour.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="KeyboardBehaviour.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="Transition.h" />
+    <ClInclude Include="WithinRangeCondition.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MathLib\MathLib.vcxproj">

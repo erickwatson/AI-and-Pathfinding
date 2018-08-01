@@ -85,9 +85,9 @@ void Application2D::draw() {
 	m_2dRenderer->setRenderColour(0, 1, 0);
 	m_2dRenderer->drawCircle(x, y, 10);
 
-	// Draw Player as a green circle
+	// Draw Player as a red circle
 	m_enemy.getPosition(&x, &y);
-	m_2dRenderer->setRenderColour(0, 1, 0);
+	m_2dRenderer->setRenderColour(1, 0, 0);
 	m_2dRenderer->drawCircle(x, y, 10);
 
 	// set the camera position before we begin rendering
