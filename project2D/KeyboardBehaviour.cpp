@@ -17,7 +17,8 @@ eBehaviourResult KeyboardBehaviour::execute(GameObject* gameObject, float deltaT
 	
 	Vector2 accel = { 0,0 };
 
-	float speed = 500;
+	float speed = m_setSpeed;
+
 
 	// Move tank, the 100 magic-number represents speed
 	if (input->isKeyDown(aie::INPUT_KEY_W)) {

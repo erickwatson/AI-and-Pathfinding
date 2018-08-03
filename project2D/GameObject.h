@@ -29,7 +29,9 @@ public:
 	// Update game object and execute behaviours
 	virtual void update(float deltaTime);
 
-
+	void setSpeed(float speed) {
+		m_setSpeed = speed;
+	};
 
 
 protected:
@@ -38,7 +40,7 @@ protected:
 	Vector2 m_acceleration;
 	Vector2 m_velocity;
 
-
+	float m_setSpeed;
 
 	std::vector<Behaviour*> m_behaviours;
 

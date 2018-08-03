@@ -20,10 +20,31 @@ public:
 		m_transitions.push_back(transition);
 	}
 
-	Transition* getTriggeredTrasition(GameObject* gameObject);
+	Transition* getTriggeredTransition(GameObject* gameObject);
 
 protected:
 	vector<Transition*> m_transitions;
  
 };
 
+
+// Doin nothin
+class IdleState : public State {
+public:
+	IdleState() {}
+	virtual ~IdleState() {}
+
+	virtual void update(GameObject* gameObject, float deltaTime) {}
+};
+
+class AttackState : public State {
+public:
+	AttackState(GameObject* target, float speed) : m_target(target), m_speed(speed) {}
+	virtual ~AttackState() {}
+	virtual void update(GameObject* gameObject, float deltaTime);
+
+private:
+	float		m_speed;
+	GameObject* m_target;
+
+};

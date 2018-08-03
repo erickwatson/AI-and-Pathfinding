@@ -17,7 +17,13 @@ public:
 	Behaviour();
 	virtual	~Behaviour();
 
+
+
 	// Pure virtual function for executing the behaviour
 	virtual eBehaviourResult execute(GameObject* gameObject, float deltaTime) = 0;
+
+
+	
+
 };
 

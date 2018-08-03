@@ -6,7 +6,7 @@ class WithinRangeCondition : public Condition {
 public:
 	WithinRangeCondition(const GameObject* target, float range) : m_target(target),
 																m_range(range) {}
-	virtual ~WithinRangeCondition()
+	virtual ~WithinRangeCondition() {}
 
 	virtual bool test(GameObject* gameObject) const;
 
