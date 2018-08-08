@@ -34,7 +34,7 @@ public:
 	IdleState() {}
 	virtual ~IdleState() {}
 
-	virtual void update(GameObject* gameObject, float deltaTime) {}
+	virtual void update(GameObject* gameObject, float deltaTime);
 };
 
 class AttackState : public State {

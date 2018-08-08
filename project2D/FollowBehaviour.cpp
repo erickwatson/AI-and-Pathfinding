@@ -4,7 +4,7 @@
 
 FollowBehaviour::FollowBehaviour()
 {
-	m_speed = 1;
+	m_speed = 10;
 }
 
 
@@ -21,8 +21,9 @@ eBehaviourResult FollowBehaviour::execute(GameObject* gameObject, float deltaTim
 	Vector2 position = gameObject->getPosition();
 	Vector2 targetPosition = m_target->getPosition();
 
-	float m_distance = position.distance(targetPosition);
 	// Calculate distance and return float m_distance().
+	float m_distance = position.distance(targetPosition);
+
 	
 
 	if (m_distance > 0)

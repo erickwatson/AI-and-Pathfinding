@@ -28,20 +28,27 @@ bool Application2D::startup() {
 	//m_followBehaviour.setTarget(&m_player);
 	//m_player.addBehaviour(&m_playerFollowBehaviour);
 	
+
+
 	// created new states
 	auto attackState = new AttackState(&m_player, 150);
 	auto idleState = new IdleState();
 
 	// create the condition, setting the player as the target
 	auto withinRangeCondition = new WithinRangeCondition(&m_player, 200);
+	auto notWithinRangeCondition = new NotWithinRangeCondition(&m_player, 300);
 
-	// create the transition, this will transition to the attack state
-	// withinRange condition is met
+	// create the transition, this will transition to the attack state when the 
+	// withinRange condition is met 
 	auto toAttackTransition = new Transition(attackState, withinRangeCondition);
 	// add the transition to the idle state
-	idleState->addTransition = new Transition(attackState, withinRangeCondition);
-	// add the transition tot he idle state
 	idleState->addTransition(toAttackTransition);
+
+	//auto notWithinRangeCondition = new NotWithinRangeCondition(&m_player, 200);
+	
+	auto toIdleTransition = new Transition(idleState, notWithinRangeCondition);
+	attackState->addTransition(toIdleTransition);
+
 
 	// add all the states, conditions and transitions to the FSM enemy behaviour
 	m_enemyBehaviour.addState(attackState);
@@ -49,6 +56,7 @@ bool Application2D::startup() {
 
 	m_enemyBehaviour.addCondition(withinRangeCondition);
 	m_enemyBehaviour.addTransition(toAttackTransition);
+
 	// set the current state of the FSM
 	m_enemyBehaviour.setCurrentState(idleState);
 	
@@ -125,6 +133,8 @@ void Application2D::draw() {
 	sprintf_s(fps, 32, "FPS: %i", getFPS());
 	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
 	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
+
+
 
 	// done drawing sprites
 	m_2dRenderer->end();

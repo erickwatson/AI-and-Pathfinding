@@ -189,7 +189,6 @@
     <ClInclude Include="KeyboardBehaviour.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Transition.h" />
-    <ClInclude Include="WithinRangeCondition.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MathLib\MathLib.vcxproj">
