@@ -16,7 +16,9 @@ public:
 	// Movement functions
 	void setPosition(float x, float y) { m_position = Vector2(x, y); }
 	void setAcceleration(float x, float y) { m_acceleration = Vector2(x, y); }
+	void addAcceleration(float x, float y) { m_acceleration += Vector2(x, y); }
 	void setVelocity(float x, float y) { m_velocity = Vector2(x, y); }
+	void setDrag(float drag) { m_drag = drag; }
 
 	void addForce(float x, float y) { m_force += Vector2(x, y); }
 
@@ -46,6 +48,7 @@ protected:
 
 	float m_maxVelocity;
 	float m_maxForce;
+	float m_drag;
 
 	float m_setSpeed;
 

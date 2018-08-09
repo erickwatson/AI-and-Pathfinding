@@ -17,6 +17,8 @@ bool Application2D::startup() {
 	m_2dRenderer = new aie::Renderer2D();
 	m_font = new aie::Font("./font/consolas.ttf", 32);
 
+	createGraph();
+
 	m_playerBehaviour.setSpeed(400);
 	m_player.addBehaviour(&m_playerBehaviour);
 	m_player.setPosition(getWindowWidth() * 0.5f, getWindowHeight() * 0.5f);
@@ -113,6 +115,9 @@ void Application2D::draw() {
 	// begin drawing sprites
 	m_2dRenderer->begin();
 
+	// Ask the graph to draw vertices/edges
+	m_graph.drawGraph(m_2dRenderer);
+
 	float x = 0, y = 0;
 
 	// Draw Player as a green circle
@@ -134,8 +139,43 @@ void Application2D::draw() {
 	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
 	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
 
+	system("CLS");
+
 
 
 	// done drawing sprites
 	m_2dRenderer->end();
+}
+
+void Application2D::createGraph()
+{
+
+	m_graph.clear();
+	int width = getWindowWidth();
+	int height = getWindowHeight();
+	int spacing = 80;
+	int gridY = 300;
+	int gridX = 600;
+	int distance = 800;
+
+	// x * y grid in the middle of screen
+	for (unsigned int y = height / 2 - gridY; y <= height / 2 + gridY; y += spacing)
+	{
+		for (unsigned int x = width / 2 - gridX; x <= width / 2 + gridX; x += spacing)
+		{
+			m_graph.addVertex(x, y, "");
+				
+		}
+	
+	}
+	m_graph.connectNearby(distance);
+
+
+	//m_graph.addVertex(210, 50, "a");
+	//m_graph.addVertex(150, 100, "b");
+	//m_graph.addVertex(250, 150, "c");
+	//m_graph.addVertex(200, 200, "d");
+
+	//m_graph.addEdge("a", "c", 2);
+	//m_graph.addEdge("a", "d", 2);
 }

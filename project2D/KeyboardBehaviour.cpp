@@ -43,7 +43,7 @@ eBehaviourResult KeyboardBehaviour::execute(GameObject* gameObject, float deltaT
 		accel = accel.normalised();
 
 	if (accel != Vector2(0,0))
-		gameObject->setAcceleration(accel.x * speed, accel.y * speed);
+		gameObject->addAcceleration(accel.x * speed, accel.y * speed);
 
 
 

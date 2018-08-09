@@ -5,6 +5,7 @@
 #include "Renderer2D.h"
 #include "KeyboardBehaviour.h"
 #include "FSM.h"
+#include "Graph.h"
 
 class Application2D : public aie::Application {
 public:
@@ -32,6 +33,9 @@ protected:
 	FSM					m_enemyBehaviour;
 	FollowBehaviour		m_followBehaviour;
 
+	Pathfinding::Graph	m_graph;
+
+	void createGraph();
 
 
 
