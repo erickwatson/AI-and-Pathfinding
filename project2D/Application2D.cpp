@@ -34,6 +34,8 @@ bool Application2D::startup() {
 
 	// created new states
 	auto attackState = new AttackState(&m_player, &m_graph, 150);
+	auto pathAttackState = new PathAttackState(&m_player, &m_graph, 150);
+	auto searchState = new SearchState();
 	auto idleState = new IdleState();
 
 	// create the condition, setting the player as the target
@@ -136,9 +138,7 @@ void Application2D::draw() {
 	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
 
 	system("CLS");
-
-
-
+	
 	// done drawing sprites
 	m_2dRenderer->end();
 }
@@ -155,12 +155,13 @@ void Application2D::createGraph()
 	int distance = 130;
 
 	// x * y grid in the middle of screen
+	int nodeID = 0;
 	for (unsigned int y = height / 2 - gridY; y <= height / 2 + gridY; y += spacing)
 	{
 		for (unsigned int x = width / 2 - gridX; x <= width / 2 + gridX; x += spacing)
 		{
-			m_graph.addVertex(x, y, "");
-				
+			m_graph.addVertex(x, y, std::to_string(nodeID));
+			nodeID++;
 		}
 	
 	}

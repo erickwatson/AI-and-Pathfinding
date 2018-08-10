@@ -56,3 +56,28 @@ private:
 	std::list <Vertex*>	m_path;
 
 };
+
+class PathAttackState : public State {
+public:
+	PathAttackState(GameObject* target, Graph* graph, float speed) : m_target(target), m_speed(speed), m_graph(graph) {}
+	virtual ~PathAttackState() {}
+	void update(GameObject* gameObject, float deltaTime) override;
+	void init(GameObject* agent) override;
+
+private:
+	float			m_speed;
+	GameObject*		m_target;
+	Graph*			m_graph;
+
+	std::list <Vertex*>	m_path;
+
+};
+
+
+class SearchState : public State {
+public:
+	SearchState() {}
+	virtual ~SearchState() {}
+
+	virtual void update(GameObject* gameObject, float deltaTime);
+};

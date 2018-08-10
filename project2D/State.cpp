@@ -48,6 +48,30 @@ void AttackState::update(GameObject * gameObject, float deltaTime)
 	
 }
 
+void PathAttackState::update(GameObject * gameObject, float deltaTime)
+{
+	if (m_target == nullptr)
+	{
+		return;
+	}
+
+	Vector2 position = gameObject->getPosition();
+	Vector2 targetPosition = m_target->getPosition();
+
+	// Calculate distance and return float m_distance().
+	float m_distance = position.distance(targetPosition);
+
+	if (m_distance > 0) {
+		// Get the vector describing the direction of the target and normalise it
+		Vector2 direction = (targetPosition - position);
+		direction.normalise();
+
+		// Move this agent in this direction at the agent's maximum speed
+		gameObject->translate((direction.x * m_speed) * deltaTime, (direction.y * m_speed) * deltaTime);
+	}
+
+}
+
 void AttackState::init(GameObject * agent)
 {
 	if (m_target != nullptr)
@@ -62,3 +86,7 @@ void AttackState::init(GameObject * agent)
 
 }
 
+void SearchState::update(GameObject * gameObject, float deltaTime)
+{
+
+}
