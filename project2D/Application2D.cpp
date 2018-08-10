@@ -4,7 +4,7 @@
 #include "Input.h"
 #include "GameObject.h"
 
-Application2D::Application2D() {
+Application2D::Application2D():m_enemy(&m_graph) {
 
 }
 
@@ -33,7 +33,7 @@ bool Application2D::startup() {
 
 
 	// created new states
-	auto attackState = new AttackState(&m_player, 150);
+	auto attackState = new AttackState(&m_player, &m_graph, 150);
 	auto idleState = new IdleState();
 
 	// create the condition, setting the player as the target
@@ -121,14 +121,10 @@ void Application2D::draw() {
 	float x = 0, y = 0;
 
 	// Draw Player as a green circle
-	m_player.getPosition(&x, &y);
-	m_2dRenderer->setRenderColour(0, 1, 0);
-	m_2dRenderer->drawCircle(x, y, 10);
+	m_player.draw(m_2dRenderer);
 
 	// Draw Player as a red circle
-	m_enemy.getPosition(&x, &y);
-	m_2dRenderer->setRenderColour(1, 0, 0);
-	m_2dRenderer->drawCircle(x, y, 10);
+	m_enemy.draw(m_2dRenderer);
 
 	// set the camera position before we begin rendering
 	//m_2dRenderer->setCameraPos(m_cameraX, m_cameraY);
@@ -156,7 +152,7 @@ void Application2D::createGraph()
 	int spacing = 80;
 	int gridY = 300;
 	int gridX = 600;
-	int distance = 800;
+	int distance = 130;
 
 	// x * y grid in the middle of screen
 	for (unsigned int y = height / 2 - gridY; y <= height / 2 + gridY; y += spacing)
@@ -168,14 +164,17 @@ void Application2D::createGraph()
 		}
 	
 	}
+
 	m_graph.connectNearby(distance);
+
 
 
 	//m_graph.addVertex(210, 50, "a");
 	//m_graph.addVertex(150, 100, "b");
 	//m_graph.addVertex(250, 150, "c");
 	//m_graph.addVertex(200, 200, "d");
-
 	//m_graph.addEdge("a", "c", 2);
 	//m_graph.addEdge("a", "d", 2);
+
+
 }

@@ -4,6 +4,7 @@
 #include "Vector2.h"
 #include "Matrix3.h"
 #include <vector>
+#include "Graph.h"
 
 class Behaviour;
 
@@ -34,12 +35,17 @@ public:
 	// Update game object and execute behaviours
 	virtual void update(float deltaTime);
 
+	virtual void draw(aie::Renderer2D*);
+
+
 	void setSpeed(float speed) {
 		m_setSpeed = speed;
 	};
 
 
 protected:
+
+	Pathfinding::Graph m_pathGraph;
 
 	Vector2 m_position;
 	Vector2 m_acceleration;

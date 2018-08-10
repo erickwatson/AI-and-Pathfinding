@@ -2,6 +2,7 @@
 #include <vector>
 #include "Vector2.h"
 #include <Renderer2D.h>
+#include <list>
 
 
 using namespace std;
@@ -76,6 +77,8 @@ namespace Pathfinding
 		void addEdge(string vertexFromID, string vertexToID, float cost, bool twoWay = true);
 		void addEdge(Vertex* vertexFrom, Vertex* vertexTo, float cost, bool twoWay = true);
 
+		Vertex* getClosestVertex(Vector2 pos);
+
 		void clear();
 
 		Vertex* operator[](int index);
@@ -94,6 +97,8 @@ namespace Pathfinding
 
 
 	};
+	bool AStar(Vertex* startNode, Vertex* endNode, std::list<Vertex*>& path);
+	bool dijkstrasSearch(Vertex* startNode, Vertex* endNode, std::list<Vertex*>& path);
 }
 /*
 class Graph

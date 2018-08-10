@@ -9,6 +9,7 @@ GameObject::GameObject()
 	//m_maxVelocity = 200;
 	//m_maxForce = 20;
 	m_drag = 0.03f;
+	
 }
 
 
@@ -27,7 +28,7 @@ void GameObject::update(float deltaTime) {
 
 
 	m_velocity += m_acceleration * deltaTime;
-//	m_velocity += m_force * deltaTime;
+	//	m_velocity += m_force * deltaTime;
 
 	m_position += m_velocity * deltaTime;
 
@@ -36,6 +37,7 @@ void GameObject::update(float deltaTime) {
 
 	std::cout << "Velocity: " << m_velocity.x << "," << m_velocity.y << std::endl;
 
+	
 
 	// Reset the acceleration
 	m_acceleration = { 0, 0 };
@@ -46,3 +48,11 @@ void GameObject::rotate(float radians) {
 	m_localTransform.rotateZ(radians);
 }
 
+
+void GameObject::draw(aie::Renderer2D* renderer)
+{
+	float x, y;
+	getPosition(&x, &y);
+	renderer->setRenderColour(0, 1, 0);
+	renderer->drawCircle(x, y, 10);
+}

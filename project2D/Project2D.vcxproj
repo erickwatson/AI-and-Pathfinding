@@ -164,29 +164,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="AStar.cpp" />
     <ClCompile Include="Behaviour.cpp" />
     <ClCompile Include="DijkstrasSearch.cpp" />
+    <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="FollowBehaviour.cpp" />
     <ClCompile Include="FSM.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="KeyboardBehaviour.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Agent.h" />
     <ClInclude Include="Application2D.h" />
     <ClInclude Include="Behaviour.h" />
     <ClInclude Include="Condition.h" />
+    <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="FollowBehaviour.h" />
     <ClInclude Include="FSM.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="KeyboardBehaviour.h" />
+    <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Transition.h" />
   </ItemGroup>

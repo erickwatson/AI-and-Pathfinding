@@ -1,7 +1,7 @@
 #include "Graph.h"
 #include <list>
 #include <algorithm>
-#include <stack>
+
 
 namespace Pathfinding {
 
@@ -9,7 +9,7 @@ namespace Pathfinding {
 		return (a->m_gScore < b->m_gScore);
 	}
 
-	bool dijkstrasSearch(Vertex* startNode, Vertex* endNode, std::stack<Vertex*>& path)
+	bool dijkstrasSearch(Vertex* startNode, Vertex* endNode, std::list<Vertex*>& path)
 	{
 		if (startNode == nullptr || endNode == nullptr) {
 			return false;
@@ -77,8 +77,8 @@ namespace Pathfinding {
 		// Calculate Path, in this example as positions
 		//Let path be a Stack of Vector2
 		// Clear any old path data...
-		while (!path.empty())
-			path.pop();
+		
+			path.clear();
 		
 		//Let currentNode = endNode;
 		m_currentNode = endNode;
@@ -87,7 +87,7 @@ namespace Pathfinding {
 		while (m_currentNode != nullptr) 
 		{
 			//Add currentNode.position to path
-			path.push(m_currentNode);
+			path.push_front(m_currentNode);
 			//currentNode = currentNode.parent
 			m_currentNode = m_currentNode->m_parent;
 		}

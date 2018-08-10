@@ -14,6 +14,12 @@ namespace Pathfinding {
 	{
 		if (m_font != nullptr)
 			delete m_font;
+
+		for (auto it = m_vertices.begin(); it != m_vertices.end(); it++)
+			delete *it;
+
+		for (auto it = m_edges.begin(); it != m_edges.end(); it++)
+			delete *it;
 	}
 	
 	void Graph::addVertex(const Vertex& v)
@@ -76,6 +82,24 @@ namespace Pathfinding {
 			m_edges.push_back(edge);
 		}
 
+	}
+
+	Vertex * Graph::getClosestVertex(Vector2 pos)
+	{
+		float minDistance = FLT_MAX;
+		Vertex* closestNode = nullptr;
+
+		for (int i = 0; i < m_vertices.size(); i++)
+		{
+			float distance = m_vertices[i]->m_position.distance(pos);
+			if (distance < minDistance)
+			{
+				minDistance = distance;
+				closestNode = m_vertices[i];
+			}
+		}
+		
+		return closestNode;
 	}
 
 	void Graph::clear()
@@ -146,4 +170,3 @@ namespace Pathfinding {
 	}
 	
 }
-

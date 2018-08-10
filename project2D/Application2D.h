@@ -1,11 +1,13 @@
 #pragma once
 #include "GameObject.h"
+#include "EnemyObject.h"
 #include "FollowBehaviour.h"
 #include "Application.h"
 #include "Renderer2D.h"
 #include "KeyboardBehaviour.h"
 #include "FSM.h"
 #include "Graph.h"
+
 
 class Application2D : public aie::Application {
 public:
@@ -26,13 +28,10 @@ protected:
 
 	GameObject			m_player;
 	KeyboardBehaviour	m_playerBehaviour;
-	FollowBehaviour		m_playerFollowBehaviour;
-	KeyboardBehaviour	m_commandInput;
-
-	GameObject			m_enemy;
+	
+	EnemyObject			m_enemy;
 	FSM					m_enemyBehaviour;
-	FollowBehaviour		m_followBehaviour;
-
+	
 	Pathfinding::Graph	m_graph;
 
 	void createGraph();

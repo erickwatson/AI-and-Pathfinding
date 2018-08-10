@@ -1,7 +1,10 @@
 #pragma once
 #include <vector>
+#include "Graph.h"
+#include <list>
 
 using namespace std;
+using namespace Pathfinding;
 
 class GameObject;
 class Transition;
@@ -14,6 +17,7 @@ public:
 
 	virtual void update(GameObject* agent, float deltaTime) = 0;
 	virtual void init(GameObject* agent) {};
+	
 	virtual void exit(GameObject* agent) {};
 
 	void addTransition(Transition* transition) {
@@ -39,12 +43,16 @@ public:
 
 class AttackState : public State {
 public:
-	AttackState(GameObject* target, float speed) : m_target(target), m_speed(speed) {}
+	AttackState(GameObject* target, Graph* graph, float speed) : m_target(target), m_speed(speed), m_graph(graph) {}
 	virtual ~AttackState() {}
-	virtual void update(GameObject* gameObject, float deltaTime);
+	void update(GameObject* gameObject, float deltaTime) override;
+	void init(GameObject* agent) override;
 
 private:
-	float		m_speed;
-	GameObject* m_target;
+	float			m_speed;
+	GameObject*		m_target;
+	Graph*			m_graph;
+
+	std::list <Vertex*>	m_path;
 
 };

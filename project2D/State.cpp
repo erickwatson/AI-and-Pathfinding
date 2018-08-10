@@ -37,9 +37,6 @@ void AttackState::update(GameObject * gameObject, float deltaTime)
 	// Calculate distance and return float m_distance().
 	float m_distance = position.distance(targetPosition);
 
-
-
-	
 		if (m_distance > 0) {
 			// Get the vector describing the direction of the target and normalise it
 			Vector2 direction = (targetPosition - position);
@@ -49,6 +46,19 @@ void AttackState::update(GameObject * gameObject, float deltaTime)
 			gameObject->translate((direction.x * m_speed) * deltaTime, (direction.y * m_speed) * deltaTime);
 		}
 	
+}
+
+void AttackState::init(GameObject * agent)
+{
+	if (m_target != nullptr)
+	{
+		Vertex* startNode = m_graph->getClosestVertex(agent->getPosition());
+		Vertex* endNode = m_graph->getClosestVertex(m_target->getPosition());
+
+		AStar(startNode, endNode, m_path);
+	
+	}
 
 
 }
+
