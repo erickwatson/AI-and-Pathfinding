@@ -18,3 +18,10 @@ eBehaviourResult FSM::execute(GameObject* gameObject, float deltaTime) {
 
 	return eBehaviourResult::FAILURE;
 }
+
+//void FollowPath()
+// we need a member path
+// and a int currentNodeIndex
+
+// move towards path[currentNodeIndex]
+// if we're close, increment the index unless wew've reached the end..

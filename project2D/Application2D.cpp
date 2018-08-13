@@ -34,7 +34,7 @@ bool Application2D::startup() {
 
 	// created new states
 	auto attackState = new AttackState(&m_player, &m_graph, 150);
-	auto pathAttackState = new PathAttackState(&m_player, &m_graph, 150);
+	//auto pathAttackState = new PathAttackState(&m_player, &m_graph, 150);
 	auto searchState = new SearchState();
 	auto idleState = new IdleState();
 
@@ -149,13 +149,13 @@ void Application2D::createGraph()
 	m_graph.clear();
 	int width = getWindowWidth();
 	int height = getWindowHeight();
-	int spacing = 80;
+	int spacing = 40;
 	int gridY = 300;
-	int gridX = 600;
-	int distance = 130;
+	int gridX = 100;
+	int distance = 60;
 
 	// x * y grid in the middle of screen
-	int nodeID = 0;
+	unsigned int nodeID = 0;
 	for (unsigned int y = height / 2 - gridY; y <= height / 2 + gridY; y += spacing)
 	{
 		for (unsigned int x = width / 2 - gridX; x <= width / 2 + gridX; x += spacing)
@@ -168,14 +168,11 @@ void Application2D::createGraph()
 
 	m_graph.connectNearby(distance);
 
+	// Test pathfinding
+	//std::list<Vertex*> path;
+	//Pathfinding::AStar(m_graph[20], m_graph[84], path);
 
 
-	//m_graph.addVertex(210, 50, "a");
-	//m_graph.addVertex(150, 100, "b");
-	//m_graph.addVertex(250, 150, "c");
-	//m_graph.addVertex(200, 200, "d");
-	//m_graph.addEdge("a", "c", 2);
-	//m_graph.addEdge("a", "d", 2);
 
 
 }

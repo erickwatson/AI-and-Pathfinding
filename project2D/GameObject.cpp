@@ -9,7 +9,6 @@ GameObject::GameObject()
 	//m_maxVelocity = 200;
 	//m_maxForce = 20;
 	m_drag = 0.03f;
-	
 }
 
 

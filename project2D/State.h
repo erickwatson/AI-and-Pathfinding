@@ -57,6 +57,7 @@ private:
 
 };
 
+/*
 class PathAttackState : public State {
 public:
 	PathAttackState(GameObject* target, Graph* graph, float speed) : m_target(target), m_speed(speed), m_graph(graph) {}
@@ -72,6 +73,7 @@ private:
 	std::list <Vertex*>	m_path;
 
 };
+*/
 
 
 class SearchState : public State {

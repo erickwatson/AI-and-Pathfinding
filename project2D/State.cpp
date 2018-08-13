@@ -46,8 +46,16 @@ void AttackState::update(GameObject * gameObject, float deltaTime)
 			gameObject->translate((direction.x * m_speed) * deltaTime, (direction.y * m_speed) * deltaTime);
 		}
 	
+		// if the player has moved too far from the end of our FSM's path
+		if (m_distance ) {
+			// PUT CODE HERE AYE
+		}
+		//     recalculate a path to the player from our closest current node
+
+		// step along the agent's path using FSM::FollowPath
 }
 
+/*
 void PathAttackState::update(GameObject * gameObject, float deltaTime)
 {
 	if (m_target == nullptr)
@@ -71,6 +79,7 @@ void PathAttackState::update(GameObject * gameObject, float deltaTime)
 	}
 
 }
+*/
 
 void AttackState::init(GameObject * agent)
 {

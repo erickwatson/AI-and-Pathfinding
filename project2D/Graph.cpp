@@ -134,7 +134,7 @@ namespace Pathfinding {
 
 		for (int i = 0; i < m_vertices.size(); i++)
 		{
-			renderer->drawCircle(m_vertices[i]->m_position.x, m_vertices[i]->m_position.y, 10, 0);
+			renderer->drawCircle(m_vertices[i]->m_position.x, m_vertices[i]->m_position.y, 6, 0);
 		}
 
 		renderer->setRenderColour(1, 1, 1);
