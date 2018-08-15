@@ -49,6 +49,12 @@ void AttackState::update(GameObject * gameObject, float deltaTime)
 		// if the player has moved too far from the end of our FSM's path
 		if (m_distance ) {
 			// PUT CODE HERE AYE
+			// Gotta use this stuff
+			//std::list<Vertex*> path;
+			//Pathfinding::AStar(m_graph[20], m_graph[84], path);
+
+
+
 		}
 		//     recalculate a path to the player from our closest current node
 
