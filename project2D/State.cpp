@@ -21,6 +21,23 @@ Transition* State::getTriggeredTransition(GameObject* gameObject) {
 
 void IdleState::update(GameObject * gameObject, float deltaTime)
 {
+	
+	// If we have no path, set a new one to a random point
+	if (gameObject->GetPath().empty())
+	{
+		int index = rand() % m_graph->getSize();
+		gameObject->SetPath(nullptr, (*m_graph)[index], m_graph);
+		std::cout << "Index: " << index <<  std::endl;
+	}
+
+	// follow the path frame by frame
+	gameObject->FollowPath(deltaTime);
+}
+
+void IdleState::exit(GameObject* gameObject) {
+	gameObject->GetPath().clear();
+	// When the enemy changes state we clear it's destination path
+	// when it tries to find a path again it will find a new one
 
 }
 

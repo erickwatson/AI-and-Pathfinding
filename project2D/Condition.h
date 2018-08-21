@@ -37,7 +37,7 @@ public:
 		float xDiff = tx - x;
 		float yDiff = ty - y;
 		float distance = sqrtf(xDiff * xDiff + yDiff * yDiff);
-		std::cout <<"FREE: " << distance << std::endl;
+		//std::cout <<"FREE: " << distance << std::endl;
 		return distance <= m_range;
 	}
 	
@@ -67,7 +67,7 @@ public:
 		float xDiff = tx - x;
 		float yDiff = ty - y;
 		float distance = sqrtf(xDiff * xDiff + yDiff * yDiff);
-		std::cout << "Within: " << distance << std::endl;
+		//std::cout << "Within: " << distance << std::endl;
 		return distance > m_range;
 	}
 

@@ -64,8 +64,9 @@ namespace Pathfinding {
 
 					//Add c.target to openList if not in closedList
 					auto it = std::find(closedList.begin(), closedList.end(), target);
+					auto it2 = std::find(openList.begin(), openList.end(), target);
 
-					if (it == closedList.end()) // Not in the closed list
+					if (it == closedList.end() && it2 == openList.end()) // Not in the closed list
 					{
 						//c.target.gScore = currentNode.gScore + c.cost
 						target->m_gScore = m_currentNode->m_gScore + cost;

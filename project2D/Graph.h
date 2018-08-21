@@ -91,6 +91,8 @@ namespace Pathfinding
 
 		aie::Font* m_font = nullptr;
 
+		int getSize() { return m_vertices.size(); }
+
 	protected:
 		std::vector<Vertex*> m_vertices;
 		std::vector<Edge*> m_edges;

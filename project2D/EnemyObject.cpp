@@ -1,5 +1,5 @@
 #include "EnemyObject.h"
-
+#include "FSM.h"
 
 
 EnemyObject::EnemyObject(Pathfinding::Graph* graph)

@@ -2,6 +2,7 @@
 
 
 eBehaviourResult FSM::execute(GameObject* gameObject, float deltaTime) {
+
 	if (m_currentState != nullptr) {
 		Transition* transition = m_currentState->getTriggeredTransition(gameObject);
 
@@ -19,7 +20,9 @@ eBehaviourResult FSM::execute(GameObject* gameObject, float deltaTime) {
 	return eBehaviourResult::FAILURE;
 }
 
-//void FollowPath()
+
+
+ 
 // we need a member path
 // and a int currentNodeIndex
 

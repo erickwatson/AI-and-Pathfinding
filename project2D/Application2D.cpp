@@ -26,17 +26,11 @@ bool Application2D::startup() {
 	m_enemy.addBehaviour(&m_enemyBehaviour);
 	m_enemy.setPosition(100, 100);
 
-	//m_followBehaviour.setSpeed(100);
-	//m_followBehaviour.setTarget(&m_player);
-	//m_player.addBehaviour(&m_playerFollowBehaviour);
-	
-
-
 	// created new states
 	auto attackState = new AttackState(&m_player, &m_graph, 150);
 	//auto pathAttackState = new PathAttackState(&m_player, &m_graph, 150);
 	auto searchState = new SearchState();
-	auto idleState = new IdleState();
+	auto idleState = new IdleState(&m_graph);
 
 	// create the condition, setting the player as the target
 	auto withinRangeCondition = new WithinRangeCondition(&m_player, 200);
@@ -137,7 +131,7 @@ void Application2D::draw() {
 	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
 	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
 
-	system("CLS");
+//	system("CLS");
 	
 	// done drawing sprites
 	m_2dRenderer->end();
@@ -149,10 +143,10 @@ void Application2D::createGraph()
 	m_graph.clear();
 	int width = getWindowWidth();
 	int height = getWindowHeight();
-	int spacing = 40;
+	int spacing = 60;
 	int gridY = 300;
-	int gridX = 100;
-	int distance = 60;
+	int gridX = 600;
+	int distance = 100;
 
 	// x * y grid in the middle of screen
 	unsigned int nodeID = 0;
@@ -167,12 +161,5 @@ void Application2D::createGraph()
 	}
 
 	m_graph.connectNearby(distance);
-
-	// Test pathfinding
-	//std::list<Vertex*> path;
-	//Pathfinding::AStar(m_graph[20], m_graph[84], path);
-
-
-
 
 }

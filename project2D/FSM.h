@@ -44,6 +44,7 @@ public:
 
 	virtual eBehaviourResult execute(GameObject* gameObject, float deltaTime);
 
+
 protected:
 
 	vector<State*>			m_states;

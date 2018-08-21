@@ -42,6 +42,9 @@ public:
 		m_setSpeed = speed;
 	};
 
+	void FollowPath(float deltaTime);
+	void SetPath(Pathfinding::Vertex* start, Pathfinding::Vertex* end, Pathfinding::Graph* graph);
+	std::list<Pathfinding::Vertex*>& GetPath() { return m_path; }
 
 protected:
 
@@ -62,6 +65,9 @@ protected:
 
 	Matrix3 m_localTransform = Matrix3::identity;
 	Matrix3 m_globalTransform = Matrix3::identity;
+
+	std::list<Pathfinding::Vertex*>		m_path;
+	int						m_currentNode; // the index into the path
 
 };
 

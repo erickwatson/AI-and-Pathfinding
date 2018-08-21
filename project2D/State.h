@@ -35,10 +35,15 @@ protected:
 // Doin nothin
 class IdleState : public State {
 public:
-	IdleState() {}
+	IdleState(Graph* graph) { m_graph = graph; }
 	virtual ~IdleState() {}
-
+	
 	virtual void update(GameObject* gameObject, float deltaTime);
+
+	virtual void exit(GameObject* gameObject);
+
+private:
+	Graph*			m_graph;
 };
 
 class AttackState : public State {
